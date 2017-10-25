@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -7822,6 +7822,7 @@ MonoBehaviour:
   - {fileID: 1938984909}
   - {fileID: 1015578144}
   - {fileID: 739498505}
+  target: {fileID: 2078153003}
 --- !u!195 &1050532276
 NavMeshAgent:
   m_ObjectHideFlags: 0

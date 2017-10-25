@@ -5,9 +5,11 @@ using System.Collections;
 public class Patrol : MonoBehaviour {
 
 	public Transform[] points;
+	public Transform target;
 	private int destPoint = 0;
 	private UnityEngine.AI.NavMeshAgent agent;
-
+	private RaycastHit hit;
+	private bool patrolling = true;
 
 	void Start () {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -36,9 +38,18 @@ public class Patrol : MonoBehaviour {
 
 
 	void Update () {
-		// Choose the next destination point when the agent gets
-		// close to the current one.
-		if (!agent.pathPending && agent.remainingDistance < 0.5f)
+		Vector3 direction = target.transform.position - gameObject.transform.position + new Vector3 (0, 0.5f, 0);
+
+		if (Physics.Raycast (transform.position, direction, out hit, 20) && hit.transform == target.transform) {
+			if (patrolling) {
+				patrolling = false;
+			}
+			agent.destination = target.position;
+		} else if (!patrolling) {
+			patrolling = true;
+			GotoNextPoint ();
+		} else if (!agent.pathPending && agent.remainingDistance < 0.1f) {
 			GotoNextPoint();
+		}
 	}
 }
