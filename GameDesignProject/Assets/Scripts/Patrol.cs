@@ -9,10 +9,11 @@ public class Patrol : MonoBehaviour {
 	private int destPoint = 0;
 	private UnityEngine.AI.NavMeshAgent agent;
 	private RaycastHit hit;
-	private bool patrolling = true;
+	private bool patrolling;
 
 	void Start () {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+		patrolling = true;
 
 		// Disabling auto-braking allows for continuous movement
 		// between points (ie, the agent doesn't slow down as it
@@ -38,13 +39,17 @@ public class Patrol : MonoBehaviour {
 
 
 	void Update () {
-		Vector3 direction = target.transform.position - gameObject.transform.position + new Vector3 (0, 0.5f, 0);
+		Vector3 direction = target.transform.position - gameObject.transform.position + new Vector3 (0, 0.1f, 0);
 
 		if (Physics.Raycast (transform.position, direction, out hit, 20) && hit.transform == target.transform) {
 			if (patrolling) {
 				patrolling = false;
 			}
 			agent.destination = target.position;
+			if (Vector3.Distance(target.transform.position, gameObject.transform.position) < 1f) {
+				GameController.gameOver = true;
+				GameController.gameOverState = 1;
+			}
 		} else if (!patrolling) {
 			patrolling = true;
 			GotoNextPoint ();
