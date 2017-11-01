@@ -8227,6 +8227,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 4.6851273, z: 0.05487466}
   m_Center: {x: -2.5, y: 2.0719004, z: 0.02743733}
+--- !u!1 &1101836367 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1368308041532298, guid: a57195cd558c221499ee85d54caf9303,
+    type: 2}
+  m_PrefabInternal: {fileID: 2078152995}
 --- !u!1001 &1102744469
 Prefab:
   m_ObjectHideFlags: 0
@@ -14077,24 +14082,7 @@ MonoBehaviour:
   ObjectiveSign_03: {fileID: 890992626}
   ObjectiveSign_04: {fileID: 1749322422}
   ObjectiveSign_05: {fileID: 1120385307}
-  ThirdPersonController: {fileID: 2078152996}
---- !u!114 &2078153005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2078152996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06945f0a805502347a31fa57f07fc28e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Poop: {fileID: 0}
-  poopCount: 0
-  countText: {fileID: 0}
-  goEat: {fileID: 0}
-  pressE: {fileID: 0}
-  currentObg: {fileID: 0}
+  PoopSpawn: {fileID: 1101836367}
 --- !u!114 &2078153006
 MonoBehaviour:
   m_ObjectHideFlags: 0

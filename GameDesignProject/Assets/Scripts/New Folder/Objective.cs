@@ -10,7 +10,7 @@ namespace SpawnPoop
         public GameObject ObjectiveSign_03;
         public GameObject ObjectiveSign_04;
         public GameObject ObjectiveSign_05;
-        public GameObject ThirdPersonController;
+        public GameObject PoopSpawn;
         private SpawnPoop poopCountScript;
         private int PoopCount;
         private int Objective_01_Complete = 0;
@@ -19,10 +19,15 @@ namespace SpawnPoop
         private int Objective_04_Complete = 0;
         private int Objective_05_Complete = 0;
 
+        private void Start()
+        {
+            poopCountScript = PoopSpawn.GetComponent<SpawnPoop>();
+            PoopCount = poopCountScript.poopCount;
+        }
+
         void OnTriggerStay(Collider other)
         {
-            poopCountScript = ThirdPersonController.GetComponent<SpawnPoop>();
-            PoopCount = poopCountScript.poopCount;
+            
 
             if (other.gameObject.name == "Objective_01" && (Input.GetKeyDown("r")) && PoopCount != 0 && Objective_01_Complete == 0)
             {
